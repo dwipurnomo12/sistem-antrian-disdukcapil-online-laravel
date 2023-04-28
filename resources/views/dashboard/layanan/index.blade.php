@@ -17,9 +17,6 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <div class="alert alert-primary" role="alert">
-                    Menu Layanan adalah daftar atau list Layanan yang tersedia di Disdukacapil, Menu ini berisi layanan yang menjadi data utama untuk membuat antrian
-                </div>
                 <div class="table-responsive">
                     <table class="display" id="dataTable" width="100%" cellspacing="0">
                         <thead>

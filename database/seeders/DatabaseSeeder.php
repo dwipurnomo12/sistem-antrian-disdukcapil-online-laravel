@@ -24,23 +24,45 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // Antrian::create([
-        //     'nama_layanan' => 'Perekaman E-KTP',
-        //     'kode'         => 'KTP',
-        //     'slug'         => 'perekaman-e-ktp',
-        //     'deskripsi'    => 'Ambil antrian untuk mengurus perekaman E-KTP anda',
-        //     'persyaratan'  => 'Berkas yang dibawa Fotocopy KK, KTP-el asli yang lama, Surat keterangan hilang kepolisian', 
-        //     'user_id'      => 1,
-        // ]);
+        Antrian::create([
+            'nama_layanan' => 'Layanan E-KTP',
+            'kode'         => 'KTP',
+            'slug'         => 'layanan-e-ktp',
+            'batas_antrian'=> 20,
+            'deskripsi'    => 'Ambil antrian untuk mengurus perekaman E-KTP',
+            'persyaratan'  => 'Berkas yang dibawa Fotocopy KK, KTP-el asli yang lama, Surat keterangan hilang kepolisian', 
+            'user_id'      => 1,
+        ]);
 
-        // Antrian::create([
-        //     'nama_layanan' => 'Kartu Keluarga',
-        //     'kode'         => 'KK',
-        //     'slug'         => 'kartu-keluarga',
-        //     'deskripsi'    => 'Ambil antrian untuk mengurus Kartu Keluarga anda',
-        //     'persyaratan'  => 'Berkas yang dibawa Fotocopy KK', 
-        //     'user_id'      => 1,
-        // ]);
+        Antrian::create([
+            'nama_layanan' => 'Layanan Kartu Keluarga',
+            'kode'         => 'KK',
+            'slug'         => 'layanan-kartu-keluarga',
+            'batas_antrian'=> 20,
+            'deskripsi'    => 'Ambil antrian untuk mengurus Kartu Keluarga',
+            'persyaratan'  => 'Berkas yang dibawa Fotocopy KK', 
+            'user_id'      => 1,
+        ]);
+
+        Antrian::create([
+            'nama_layanan' => 'Layanan Akta Kelahiran',
+            'kode'         => 'AKKEL',
+            'slug'         => 'layanan-akta-kelahiran',
+            'batas_antrian'=> 20,
+            'deskripsi'    => 'Ambil antrian untuk mengurus Akta Kelahiran',
+            'persyaratan'  => 'Berkas yang dibawa Fotocopy KK', 
+            'user_id'      => 1,
+        ]);
+
+        Antrian::create([
+            'nama_layanan' => 'Layanan Surat Pindah',
+            'kode'         => 'SP',
+            'slug'         => 'layanan-surat-pindah',
+            'batas_antrian'=> 20,
+            'deskripsi'    => 'Ambil antrian untuk mengurus Surat Pindah',
+            'persyaratan'  => 'Berkas yang dibawa Fotocopy KK', 
+            'user_id'      => 1,
+        ]);
 
         Layanan::create([
             'nama_layanan' => 'Layanan E-KTP',
@@ -56,43 +78,27 @@ class DatabaseSeeder extends Seeder
             'user_id'      => 1
         ]);
 
+        Layanan::create([
+            'nama_layanan' => 'Layanan Akta Kelahiran',
+            'kode'         => 'AKKEL',
+            'deskripsi'    => 'Pelayanan dan pengurusan Akta Kelahiran',
+            'user_id'      => 1
+        ]);
+
+        Layanan::create([
+            'nama_layanan' => 'Layanan Surat Pindah',
+            'kode'         => 'KK',
+            'deskripsi'    => 'Pelayanan dan pengurusan Surat Pindah',
+            'user_id'      => 1
+        ]);
+
         User::create([
-            'name'      => 'Dwi Purnomo',
-            'email'     => 'purnomodwi174@gmail.com',
+            'name'      => 'Admin',
+            'email'     => 'admin@gmail.com',
             'password'  => bcrypt('1234'),
             'roles'     => 'admin'
         ]);
 
-        User::create([
-            'name'      => 'Mujiyono',
-            'email'     => 'mujiyono@gmail.com',
-            'password'  => bcrypt('1234'),
-            'roles'     => 'masyarakat'
-        ]);
-
-        User::create([
-            'name'      => 'Trianto Adi',
-            'email'     => 'wartabolanet2@gmail.com',
-            'password'  => bcrypt('1234'),
-            'roles'     => 'masyarakat'
-        ]);
-
-        User::create([
-            'name'      => 'Agung Budiawan',
-            'email'     => 'agung@gmail.com',
-            'password'  => bcrypt('1234'),
-            'roles'     => 'masyarakat'
-        ]);
-
-        // Ambilantrian::create([
-        //     'tanggal'       => '2023-04-17 00:00:00',
-        //     'nama_lengkap'  => 'Galang Adi Trianto',
-        //     'kode'          => 'KTP',
-        //     'alamat'        => 'Banyuurip',
-        //     'nomorhp'       => '08122832323',
-        //     'antrian_id'    => 1,
-        //     'user_id'       => 2
-        // ]);
 
     }
 }
