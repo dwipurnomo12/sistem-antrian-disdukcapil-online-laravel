@@ -95,6 +95,16 @@
 			})
 		});
 	</script>
+
+  <script>
+    $(document).ready(function() {
+      $('nav#navbar ul li a').filter(function() {
+        return this.href == location.href;
+      }).addClass('active');
+    });
+  </script>
+
+
 </body>
 
 </html>

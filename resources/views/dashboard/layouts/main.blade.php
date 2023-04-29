@@ -110,19 +110,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     Swal.fire({
@@ -138,7 +125,7 @@
                                                             document.getElementById('logout-form').submit();
                                                         }
                                                     });">
-                                        {{ __('Keluar') }}
+                                        <i class="bi bi-box-arrow-right"></i>  {{ __('Keluar') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -274,7 +261,33 @@
     });
 </script>
 
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=qdMHZ86k"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=qdMHZ86k"></script>
+
+<script>
+    var navItems = document.querySelectorAll('.nav-item');
+
+    for(var i = 0; i < navItems.length; i++){
+        navItems[i].addEventListener('click', function(){
+            for(var j = 0; j < navItems.length; j++){
+                navItems[j].classList.remove('active');
+            }
+            this.classList.add('active');
+            localStorage.setItem('selectedNav', this.querySelector('a').getAttribute('href'));
+        });
+    }
+
+    var selectedNav = localStorage.getItem('selectedNav');
+
+    if(selectedNav){
+        for(var i = 0; i < navItems.length; i++){
+            var navLink = navItems[i].querySelector('a');
+            if(navLink.getAttribute('href') === selectedNav){
+                navItems[i].classList.add('active');
+                break;
+            }
+        }
+    }
+</script>
 
 </body>
 

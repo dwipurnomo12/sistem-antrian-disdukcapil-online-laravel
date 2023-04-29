@@ -81,11 +81,11 @@ class AntrianController extends Controller
             $next_kode = $next_kode_int;
         }
         
-        // validasi untuk memastikan tidak terjadi duplikasi pada kode antrian
+        // validasi untuk memastikan tidak terjadi duplikasi pada kode antrian pada tanggal yang sama
         $kode_antrian = $service_code . '-' . $next_kode;
-        $existing_record = Ambilantrian::where('kode', $kode_antrian)->first();
+        $existing_record = Ambilantrian::where('kode', $kode_antrian)->where('tanggal', $validated['tanggal'])->first();
         if ($existing_record) {
-            return redirect('/antrian')->with('error', 'Maaf, terdapat duplikasi pada kode antrian');
+            return redirect('/antrian')->with('error', 'Maaf,gagal mengambil antrian. Silahkan ambil di hari lain');
         }
 
         
