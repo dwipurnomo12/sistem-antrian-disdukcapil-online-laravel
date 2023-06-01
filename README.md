@@ -7,60 +7,78 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Sistem Antrian Disdukcapil Online Berbasis Web Dilengkapi Dengan Fitur Pemanggilan Suara
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Sistem antrian Dukcapil (Dinas Kependudukan dan Catatan Sipil) online adalah platform yang memungkinkan orang untuk melakukan reservasi online untuk pelayanan administrasi kependudukan dan catatan sipil di kantor Dukcapil yang telah ditentukan. Dengan sistem ini, pengguna dapat melakukan reservasi dengan mudah dan menghindari antrean yang panjang di kantor Dukcapil.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Fitur
+- Pengunjung/Pengambil Antrian
+    1. Ambil Antriean
+    2. Lihat Daftar Antrian
+    3. Cetak Nomor Antrian
+    4. Hapus Antrian
+  
+- Admin/Operator
+    1. Manajemen Layanan
+    2. Manajemen Antrian
+    3. Pemanggilan Antrian dengan Suara Otomatis
+    4. Reset Antrian
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Teknologi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Sistem Informasi Inventory Gudang menggunakan beberapa Teknologi diantaranya :
 
-### Premium Partners
+- Laravel - The PHP Framework for Web Artisans
+- JavaScript - JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.
+- Bootstrap - Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
+## Installasi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Lakukan Clone Project/Unduh manual 
 
-## Code of Conduct
+Buat database dengan nama 'antriandukcapil'
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Jika melakukan Clone Project, rename file .env.example dengan env dan hubungkan
+database nya dengan mengisikan nama database, 'DB_DATABASE=antriandukcapil'
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Kemudian, Ketik pada terminal :
+```sh
+php artisan migrate
+```
 
-## License
+Lalu ketik juga
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```sh
+php artisan migrate:fresh --seed
+```
+
+Jalankan aplikasi 
+
+```sh
+php artisan serve
+```
+
+Akses Aplikasi di Web browser 
+```sh
+127.0.0.1:8000
+```
+
+
+
+![Screenshot_930](https://github.com/dwipurnomo12/sistem-antrian-disdukcapil-online-laravel/assets/105181667/b785677c-57ee-4729-ad3d-cebd6c9a5ed4)
+
+![Screenshot_931](https://github.com/dwipurnomo12/sistem-antrian-disdukcapil-online-laravel/assets/105181667/e01f4f52-ada7-4422-aae9-cd0ce75c0d95)
+
+![Screenshot_932](https://github.com/dwipurnomo12/sistem-antrian-disdukcapil-online-laravel/assets/105181667/f115546b-5144-4c6f-a09c-3de5cdb4dc51)
+
+![Screenshot_933](https://github.com/dwipurnomo12/sistem-antrian-disdukcapil-online-laravel/assets/105181667/03b1a9c8-72cc-4b44-bd5e-b23e51fdde60)
+
+![Screenshot_934](https://github.com/dwipurnomo12/sistem-antrian-disdukcapil-online-laravel/assets/105181667/1f0b3922-9925-40d8-bac3-75ab86d3e3d3)
+
