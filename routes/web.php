@@ -9,6 +9,7 @@ use App\Http\Controllers\DaftarAntrianController;
 use App\Http\Controllers\Dashboard\DashboardAntrianController;
 use App\Http\Controllers\Dashboard\DashboardAntrianMasukController;
 use App\Http\Controllers\Dashboard\DashboardLayananController;
+use App\Http\Controllers\DisplayPanggilanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,9 @@ Route::get('/home', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::get('/display-panggilan/get-nomor-antrian', [DisplayPanggilanController::class, 'getNomorAntrianDipanggil']);
+Route::resource('/display-panggilan', DisplayPanggilanController::class);
 
 // Route halaman antrian untuk masyarakat/pengambil antrian
 Route::get('/daftar-antrian', [DaftarAntrianController::class, 'index']);
