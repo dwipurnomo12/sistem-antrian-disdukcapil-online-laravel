@@ -31,7 +31,7 @@ Sistem antrian Dukcapil (Dinas Kependudukan dan Catatan Sipil) online adalah pla
 
 ## Teknologi
 
-Sistem Informasi Inventory Gudang menggunakan beberapa Teknologi diantaranya :
+Sistem Antrian Disdukcapil Online menggunakan beberapa Teknologi diantaranya :
 
 - Laravel - The PHP Framework for Web Artisans
 - JavaScript - JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.
