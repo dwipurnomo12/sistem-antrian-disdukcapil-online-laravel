@@ -55,6 +55,9 @@
                 <a class="nav-link" href="/dashboard/layanan">
                     <i class="bi bi-headset"></i>
                     <span>Layanan</span></a>
+                <a class="nav-link" href="/dashboard/pendaftar">
+                    <i class="bi bi-people"></i>
+                    <span>Pendaftar</span></a>
             </li>
 
             <div class="sidebar-heading">

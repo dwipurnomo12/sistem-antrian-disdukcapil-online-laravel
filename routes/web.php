@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\DashboardLayananController;
 use App\Http\Controllers\Dashboard\DashboardStatistikController;
 use App\Http\Controllers\Dashboard\DashboardAntrianMasukController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PendaftarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/laporan-antrian', [DashboardLaporanController::class, 'index']);
     Route::get('/dashboard/laporan-antrian/pdf', [DashboardLaporanController::class, 'exportPdf'])->name('laporan.antrian.pdf');
     Route::get('/dashboard/statistik', [DashboardStatistikController::class, 'index']);
+    Route::get('/dashboard/pendaftar', [PendaftarController::class, 'index']);
+    Route::put('/dashboard/pendaftar/{id}/verifikasi', [PendaftarController::class, 'updateVerifikasi']);
 });
 
 // Route untuk user, hanya User/Pengambil Antrian yang bisa mengakses halaman-halaman ini
