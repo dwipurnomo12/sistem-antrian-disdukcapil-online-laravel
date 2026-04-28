@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('nomorhp');
             $table->integer('batas_antrian')->nullable();
+            $table->enum('status', ['Dilayani', 'Tidak Datang'])->default('Tidak Datang');
             $table->foreignId('antrian_id');
             $table->foreignId('user_id');
             $table->timestamps();

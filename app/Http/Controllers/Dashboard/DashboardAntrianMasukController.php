@@ -25,12 +25,11 @@ class DashboardAntrianMasukController extends Controller
     }
 
     // Untuk fungsi Ada antrian atau menghapus data pengambil antrian
-    public function destroy($id)
+    public function ada(Ambilantrian $antrian)
     {
-        $ambilantrian = Ambilantrian::findOrFail($id);
-        Ambilantrian::destroy($ambilantrian->id);
-
+        $antrian->update(['status' => 'Dilayani']);
         alert()->toast('Antrian Selanjutnya', 'success');
+
         return redirect()->back();
     }
 
@@ -43,12 +42,12 @@ class DashboardAntrianMasukController extends Controller
         alert()->toast('Antrian Dilewati', 'info');
         return redirect()->back();
     }
-    
+
     // Untuk reset antrian masuk
     public function reset()
     {
         Ambilantrian::whereDate('tanggal', Carbon::now()->setTimezone('Asia/Jakarta'))->delete();
-        
+
         Alert::success('Sukses', 'Berhasil Mereset Data Antrian Masuk');
         return redirect()->back();
     }

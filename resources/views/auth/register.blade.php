@@ -34,8 +34,11 @@
                         </div>
 
 
-                        <div class="form-group">
-                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="password" name="password" placeholder="Masukkan Password">
+                        <div class="form-group password-toggle-wrapper">
+                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="register-password" name="password" placeholder="Masukkan Password">
+                            <button type="button" class="password-toggle-button" data-toggle-password data-target="register-password" aria-label="Tampilkan password">
+                                <i class="fas fa-eye"></i>
+                            </button>
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <p>{{ $message }}</p>
@@ -43,8 +46,11 @@
                             @enderror
                         </div>
                         
-                        <div class="form-group">
-                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="password" name="password_confirmation" placeholder="Masukkan Password">
+                        <div class="form-group password-toggle-wrapper">
+                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="register-password-confirmation" name="password_confirmation" placeholder="Masukkan Password">
+                            <button type="button" class="password-toggle-button" data-toggle-password data-target="register-password-confirmation" aria-label="Tampilkan konfirmasi password">
+                                <i class="fas fa-eye"></i>
+                            </button>
                             @error('password_confirmation')
                                 <span class="invalid-feedback" role="alert">
                                     <p>{{ $message }}</p>

@@ -32,8 +32,11 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"id="password" name="password" placeholder="Masukkan Password">
+                                        <div class="form-group password-toggle-wrapper">
+                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="login-password" name="password" placeholder="Masukkan Password">
+                                            <button type="button" class="password-toggle-button" data-toggle-password data-target="login-password" aria-label="Tampilkan password">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <p>{{ $message }}</p>

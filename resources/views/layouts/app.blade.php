@@ -20,6 +20,33 @@
     <!-- Custom styles for this template-->
     <link href="/dashboardAssets/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <style>
+        .password-toggle-wrapper {
+            position: relative;
+        }
+
+        .password-toggle-wrapper .form-control {
+            padding-right: 3rem;
+        }
+
+        .password-toggle-button {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            border: 0;
+            background: transparent;
+            color: #858796;
+            padding: 0;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .password-toggle-button:focus {
+            outline: none;
+        }
+    </style>
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -37,6 +64,26 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/dashboardAssets/js/sb-admin-2.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('[data-toggle-password]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var input = document.getElementById(this.getAttribute('data-target'));
+                    var icon = this.querySelector('i');
+
+                    if (!input || !icon) {
+                        return;
+                    }
+
+                    var isPassword = input.getAttribute('type') === 'password';
+                    input.setAttribute('type', isPassword ? 'text' : 'password');
+                    icon.classList.toggle('fa-eye', !isPassword);
+                    icon.classList.toggle('fa-eye-slash', isPassword);
+                });
+            });
+        });
+    </script>
 
 </body>
 

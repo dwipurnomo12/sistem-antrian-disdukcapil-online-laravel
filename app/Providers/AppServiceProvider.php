@@ -24,6 +24,4 @@ class AppServiceProvider extends ServiceProvider
         $antrians = Antrian::all();
         view::share('antrians', $antrians);
     }
-
-    
 }

@@ -15,7 +15,7 @@ class DisplayPanggilanController extends Controller
      */
     public function index()
     {
-        return view('display-panggilan.index',[
+        return view('display-panggilan.index', [
             'antrianList'   => Antrian::all(),
         ]);
     }
@@ -23,16 +23,17 @@ class DisplayPanggilanController extends Controller
     public function getNomorAntrianDipanggil(Request $request)
     {
         $antrianId  = $request->input('antrian_id');
-        $antrian    = Ambilantrian::where('antrian_id', $antrianId)
+        $antrian    = Ambilantrian::whereDate('tanggal', Carbon::now()->setTimezone('Asia/Jakarta'))
+            ->where('antrian_id', $antrianId)
             ->orderBy('created_at', 'asc')
             ->first();
-    
+
         return response()->json([
             'kode'      => $antrian->kode,
         ]);
     }
-    
-    
+
+
 
     /**
      * Show the form for creating a new resource.

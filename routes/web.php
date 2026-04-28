@@ -6,10 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\DaftarAntrianController;
-use App\Http\Controllers\Dashboard\DashboardAntrianController;
-use App\Http\Controllers\Dashboard\DashboardAntrianMasukController;
-use App\Http\Controllers\Dashboard\DashboardLayananController;
 use App\Http\Controllers\DisplayPanggilanController;
+use App\Http\Controllers\Dashboard\DashboardAntrianController;
+use App\Http\Controllers\Dashboard\DashboardLaporanController;
+use App\Http\Controllers\Dashboard\DashboardLayananController;
+use App\Http\Controllers\Dashboard\DashboardStatistikController;
+use App\Http\Controllers\Dashboard\DashboardAntrianMasukController;
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +26,8 @@ use App\Http\Controllers\DisplayPanggilanController;
 */
 
 // Route Halaman Utama/Home Depan
-Route::get('/', function () {
-    return view('index');
-});
-
-// Route Halaman /home akan otomatis redirect ke view index
-Route::get('/home', function () {
-    return view('index');
-});
+Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/home', [LandingPageController::class, 'index']);
 
 // Route Halaman view contact
 Route::get('/contact', function () {
@@ -43,7 +40,7 @@ Route::resource('/display-panggilan', DisplayPanggilanController::class);
 // Route halaman antrian untuk masyarakat/pengambil antrian
 Route::get('/daftar-antrian', [DaftarAntrianController::class, 'index']);
 Route::get('/daftar-antrian/{antrian:slug}', [DaftarAntrianController::class, 'show']);
-Route::get('/antrian', [AntrianController::class, 'index']);  
+Route::get('/antrian', [AntrianController::class, 'index']);
 
 Auth::routes();
 
@@ -55,15 +52,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/dashboard/antrian', DashboardAntrianController::class);
     Route::resource('/dashboard/layanan', DashboardLayananController::class);
     Route::get('/dashboard/antrian-masuk/{antrian:slug}', [DashboardAntrianMasukController::class, 'index']);
-    Route::DELETE('/dashboard/antrian-masuk/{antrian:id}', [DashboardAntrianMasukController::class, 'destroy'])->name('antrian.destroy');
+    Route::put('/dashboard/antrian-masuk/{antrian:id}', [DashboardAntrianMasukController::class, 'ada'])->name('antrian.ada');
     Route::PUT('/dashboard/antrian-masuk/{antrian:id}/skip', [DashboardAntrianMasukController::class, 'skip'])->name('antrian.skip');
     Route::DELETE('/dashboard/antrian-masuk/{slug}/reset', [DashboardAntrianMasukController::class, 'reset']);
+    Route::get('/dashboard/laporan-antrian', [DashboardLaporanController::class, 'index']);
+    Route::get('/dashboard/laporan-antrian/pdf', [DashboardLaporanController::class, 'exportPdf'])->name('laporan.antrian.pdf');
+    Route::get('/dashboard/statistik', [DashboardStatistikController::class, 'index']);
 });
 
 // Route untuk user, hanya User/Pengambil Antrian yang bisa mengakses halaman-halaman ini
 Route::middleware(['auth', 'role:masyarakat'])->group(function () {
-    Route::get('/antrian/create/{id}', [AntrianController::class, 'create']);  
-    Route::POST('/antrian', [AntrianController::class, 'store'])->name('store.antrian');  
+    Route::get('/antrian/create/{id}', [AntrianController::class, 'create']);
+    Route::POST('/antrian', [AntrianController::class, 'store'])->name('store.antrian');
     Route::get('/antrian/detail', [AntrianController::class, 'detail']);
     Route::DELETE('/antrian/detail/{id}', [AntrianController::class, 'destroy']);
     Route::get('/antrian/kode-antrian/{id}', [AntrianController::class, 'cetakKodeAntrian']);

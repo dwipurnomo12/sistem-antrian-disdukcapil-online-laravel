@@ -3,7 +3,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
-                <div class="sidebar-brand-text mx-3">Sistem Antrian Online</div>
+                <div class="sidebar-brand-text mx-3">SIPERA</div>
             </a>
 
             <!-- Divider -->
@@ -28,7 +28,7 @@
                     <i class="bi bi-list-columns-reverse"></i>
                     <span>Antrian</span></a>
             </li>
-            
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -39,8 +39,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berdasarkan Layanan </h6>
                         @foreach ($antrians as $antrian)
-                            <a class="collapse-item" href="/dashboard/antrian-masuk/{{ $antrian->slug }}">{{ $antrian->nama_layanan }}</a>
-                        @endforeach   
+                            <a class="collapse-item"
+                                href="/dashboard/antrian-masuk/{{ $antrian->slug }}">{{ $antrian->nama_layanan }}</a>
+                        @endforeach
                     </div>
                 </div>
             </li>
@@ -54,6 +55,18 @@
                 <a class="nav-link" href="/dashboard/layanan">
                     <i class="bi bi-headset"></i>
                     <span>Layanan</span></a>
+            </li>
+
+            <div class="sidebar-heading">
+                Laporan
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard/laporan-antrian">
+                    <i class="bi bi-filetype-pdf"></i>
+                    <span>Data Laporan</span></a>
+                <a class="nav-link" href="/dashboard/statistik">
+                    <i class="bi bi-pie-chart-fill"></i>
+                    <span>Statistik</span></a>
             </li>
 
             <!-- Divider -->
